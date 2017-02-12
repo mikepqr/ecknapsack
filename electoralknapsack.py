@@ -1,14 +1,33 @@
 import json
+import pandas as pd
+import os
 
 
-def getresults():
-    with open('results.json') as f:
+def csv2json(csvpath):
+    head, ext = os.path.splitext(csvpath)
+    results = pd.read_csv(csvpath, index_col=0)
+    results.to_json(head + '.json', orient='index')
+
+
+def getresults(jsonpath):
+    with open(jsonpath) as f:
         return json.load(f)
 
 
+def winnerloser(results):
+    '''Return ('gop', 'dem') if GOP won, else return ('dem', 'gop').'''
+    demevs = sum(result['evs'] for state, result in results.items()
+                 if result['dem'] - result['gop'] > 0)
+    gopevs = sum(result['evs'] for state, result in results.items()
+                 if result['gop'] - result['dem'] > 0)
+    return ('gop', 'dem') if gopevs > demevs else ('dem', 'gop')
+
+
 def loststates(results):
-    '''Return list of states lost by Democrats.'''
-    return [state for state, result in results.items() if result['delta'] > 0]
+    '''Return list of states lost by loser.'''
+    winner, loser = winnerloser(results)
+    return [state for state, result in results.items()
+            if result[winner] > result[loser]]
 
 
 def evslostwonreqd(results, total=538):
@@ -20,35 +39,41 @@ def evslostwonreqd(results, total=538):
     return lost, won, reqd
 
 
-def demtargets(results):
+def findflips(results):
     '''
     Determine states to which one would need to relocate the smallest possible
-    number of Democrats that change the 2016 electoral college winner (assuming
-    no one changes their vote).
+    number of voters for the losing party to change the electoral college
+    winner (assuming no one changes their vote).
 
-    Uses DP knapsack algorithm to solve a related problem (states GOP won by
-    the most votes that GOP can retain while losing the election). Remaining
-    2016 GOP states are those that would most efficiently change election
-    outcome.
+    Uses DP knapsack algorithm to solve a related problem (states the actual
+    winner won by the most votes they can retain while losing the election).
+    Remaining winner's states are those that would most efficiently change
+    election outcome.
 
     See http://stackoverflow.com/a/7950524/409879.
     '''
-    items = [(state, result['delta'], result['evs'])
+    winner, loser = winnerloser(results)
+    items = [(state, result[winner] - result[loser] + 1, result['evs'])
              for state, result in results.items()
              if state in loststates(results)]
     lost, won, reqd = evslostwonreqd(results)
-    gophold, _ = knapsack(items, lost - reqd)
-    return [state for state in loststates(results)
-            if state not in [s for (s, _, _) in gophold]]
+    hold, _ = knapsack(items, lost - reqd)
+    flips = [state for state in loststates(results)
+             if state not in [s for (s, _, _) in hold]]
+    return flips
 
 
 def printresults(flips, results):
-    fmt = 'Move {} Californians to {} for {} EVs'.format
-    for f in flips:
-        print(fmt(results[f]['delta'], f, results[f]['evs']))
+    winner, loser = winnerloser(results)
+    lstring = 'Democrats' if loser == 'dem' else 'Republicans'
+    fvars = [(result[winner] - result[loser] + 1,
+              lstring, state, result['evs'])
+             for state, result in results.items() if state in flips]
+    for fvar in fvars:
+        print('Move {} {} to {} for {} EVs'.format(*fvar))
     print('Total of {} people for {} EVs'.format(
-        sum(results[f]['delta'] for f in flips),
-        sum(results[f]['evs'] for f in flips)
+        sum(fvar[0] for fvar in fvars),
+        sum(fvar[3] for fvar in fvars)
     ))
 
 
