@@ -44,12 +44,10 @@ def findflips(results):
 
 def printresults(flips, loser='Democrats'):
     for flip in flips:
-        print('Move {} {} to {} for {} EVs'.format(
-            flip[1], loser, flip[0], flip[2]))
+        print('Move {} {} to {} for {} EVs'.format(flip[1], loser, flip[0],
+                                                   flip[2]))
     print('Total of {} people for {} EVs'.format(
-        sum(flip[1] for flip in flips),
-        sum(flip[2] for flip in flips)
-    ))
+        sum(flip[1] for flip in flips), sum(flip[2] for flip in flips)))
 
 
 def complementaryknapsack(items, W):
