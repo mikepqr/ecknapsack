@@ -49,29 +49,24 @@ def findflips(results):
     items = [(state, result[winner] - result[loser] + 1, result['evs'])
              for state, result in results.items()
              if state in loststates(results)]
-    reqd = evsreqd(results)
-    flips, _ = complementaryknapsack(items, reqd)
+    flips, _ = complementaryknapsack(items, evsreqd(results))
     return flips
 
 
-def printresults(flips, results):
-    winner, loser = winnerloser(results)
-    lstring = 'Democrats' if loser == 'dem' else 'Republicans'
-    fvars = [(result[winner] - result[loser] + 1,
-              lstring, state, result['evs'])
-             for state, result in results.items() if state in flips]
-    for fvar in fvars:
-        print('Move {} {} to {} for {} EVs'.format(*fvar))
+def printresults(flips, loser='Democrats'):
+    for flip in flips:
+        print('Move {} {} to {} for {} EVs'.format(
+            flip[1], loser, flip[0], flip[2]))
     print('Total of {} people for {} EVs'.format(
-        sum(fvar[0] for fvar in fvars),
-        sum(fvar[3] for fvar in fvars)
+        sum(flip[1] for flip in flips),
+        sum(flip[2] for flip in flips)
     ))
 
 
 def complementaryknapsack(items, W):
     '''
     Solve complementary knapsack problem for an iterable of items and knapsack
-    capacity W. Each items is a (label, value, weight) triple.
+    capacity W. Each item is a (label, value, weight) triple.
 
     Returns the items selected and their total value.
 
@@ -82,8 +77,8 @@ def complementaryknapsack(items, W):
     '''
     Wtot = sum(weight for label, value, weight in items)
     picks, _ = knapsack(items, Wtot - W)
-    complement = ((label, value, weight) for label, value, weight in items
-                  if label not in [labelpick for labelpick, _, _ in picks])
+    complement = [(label, value, weight) for label, value, weight in items
+                  if label not in [labelp for labelp, _, _ in picks]]
     complementvalue = sum(value for label, value, weight in complement)
     return complement, complementvalue
 
@@ -91,7 +86,7 @@ def complementaryknapsack(items, W):
 def knapsack(items, W):
     '''
     Solve knapsack problem for an iterable of items and knapsack capacity W.
-    Each items is a (label, value, weight) triple.
+    Each item is a (label, value, weight) triple.
 
     Returns the items selected and their total value.
 
