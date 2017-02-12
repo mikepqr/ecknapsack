@@ -20,7 +20,7 @@ def loststates(results):
 
 
 def evsreqd(results, total=538):
-    '''Returns number of EVs lost, won and required by Democrats.'''
+    '''Returns number of addional EVs required by loser to change outcome.'''
     lost = sum(result['evs'] for state, result in results.items()
                if state in loststates(results))
     won = total - lost
