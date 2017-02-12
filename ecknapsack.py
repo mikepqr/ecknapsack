@@ -30,13 +30,13 @@ def loststates(results):
             if result[winner] > result[loser]]
 
 
-def evslostwonreqd(results, total=538):
+def evsreqd(results, total=538):
     '''Returns number of EVs lost, won and required by Democrats.'''
     lost = sum(result['evs'] for state, result in results.items()
                if state in loststates(results))
     won = total - lost
     reqd = total//2 + 1 - won
-    return lost, won, reqd
+    return reqd
 
 
 def findflips(results):
@@ -44,22 +44,13 @@ def findflips(results):
     Determine states to which one would need to relocate the smallest possible
     number of voters for the losing party to change the electoral college
     winner (assuming no one changes their vote).
-
-    Uses DP knapsack algorithm to solve a related problem (states the actual
-    winner won by the most votes they can retain while losing the election).
-    Remaining winner's states are those that would most efficiently change
-    election outcome.
-
-    See http://stackoverflow.com/a/7950524/409879.
     '''
     winner, loser = winnerloser(results)
     items = [(state, result[winner] - result[loser] + 1, result['evs'])
              for state, result in results.items()
              if state in loststates(results)]
-    lost, won, reqd = evslostwonreqd(results)
-    hold, _ = knapsack(items, lost - reqd)
-    flips = [state for state in loststates(results)
-             if state not in [s for (s, _, _) in hold]]
+    reqd = evsreqd(results)
+    flips, _ = complementaryknapsack(items, reqd)
     return flips
 
 
@@ -77,14 +68,35 @@ def printresults(flips, results):
     ))
 
 
+def complementaryknapsack(items, W):
+    '''
+    Solve complementary knapsack problem for an iterable of items and knapsack
+    capacity W. Each items is a (label, value, weight) triple.
+
+    Returns the items selected and their total value.
+
+    The complementary knapsack selection is the subset of items that minimizes
+    the total value of the knapsack while exceeding its capacity.
+
+    See http://stackoverflow.com/a/7950524/409879.
+    '''
+    Wtot = sum(weight for label, value, weight in items)
+    picks, _ = knapsack(items, Wtot - W)
+    complement = ((label, value, weight) for label, value, weight in items
+                  if label not in [labelpick for labelpick, _, _ in picks])
+    complementvalue = sum(value for label, value, weight in complement)
+    return complement, complementvalue
+
+
 def knapsack(items, W):
     '''
     Solve knapsack problem for an iterable of items and knapsack capacity W.
-
-    Return the maximum possible total value of items in a knapsack of capacity
-    W, and the items selected.
-
     Each items is a (label, value, weight) triple.
+
+    Returns the items selected and their total value.
+
+    The knapsack selection is the subset of items that maximizes the total
+    value of the knapsack without exceeding its capacity.
     '''
     items = list(items)
     n = len(items)
