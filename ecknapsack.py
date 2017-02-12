@@ -3,17 +3,6 @@ import pandas as pd
 import os
 
 
-def csv2json(csvpath):
-    head, ext = os.path.splitext(csvpath)
-    results = pd.read_csv(csvpath, index_col=0)
-    results.to_json(head + '.json', orient='index')
-
-
-def getresults(jsonpath):
-    with open(jsonpath) as f:
-        return json.load(f)
-
-
 def winnerloser(results):
     '''Return ('gop', 'dem') if GOP won, else return ('dem', 'gop').'''
     demevs = sum(result['evs'] for state, result in results.items()
@@ -122,3 +111,14 @@ def knapsack(items, W):
             picks.append(items[j-1])
 
     return picks, A[n][W]
+
+
+def csv2json(csvpath):
+    head, ext = os.path.splitext(csvpath)
+    results = pd.read_csv(csvpath, index_col=0)
+    results.to_json(head + '.json', orient='index')
+
+
+def getresults(jsonpath):
+    with open(jsonpath) as f:
+        return json.load(f)
