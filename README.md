@@ -1,8 +1,8 @@
 # The Electoral College and the knapsack problem
 
-What is the smallest number of Democrats that could change the outcome of a
-United States presidential election by relocating to another state? And where
-should they move?
+What is the smallest number of supporters of the losing party that could have
+changed the outcome of a United States presidential election by relocating to
+another state? And where should they have moved?
 
 This code uses the a dynamic programming knapsack solver to determine the
 answer.
