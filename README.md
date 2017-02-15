@@ -8,7 +8,7 @@ This code uses the a dynamic programming knapsack solver to determine the
 answer.
 
 See [The Electoral College and the knapsack
-problem](http://mike.place/2017/electoralknapsack/) for more details.
+problem](http://mike.place/2017/ecknapsack/) for more details.
 
 ```python
 In [1]: results = getresults('2016.json')
