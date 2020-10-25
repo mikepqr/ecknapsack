@@ -28,13 +28,12 @@ Out[2]:
 In [3]: findflips(results)
 Out[3]: [('WI', 22749, 10), ('PA', 44293, 20), ('MI', 10705, 16)]
 
-In [4]: for year in (2016, 2012, 2008, 2004, 2000, 1996, 1992, 1988):
-          ...:    ...:     results = getresults(str(year) + '.json')
-          ...:    ...:     flips = findflips(results)
-          ...:    ...:     loser = 'Democrats' if winnerloser(results)[1] == 'dem' else 'Republicans'
-          ...:    ...:     print("\n" + str(year))
-          ...:    ...:     printresults(flips, loser=loser)
-          ...:
+In [4]: for year in (2016, 2012, 2008, 2004, 2000, 1996, 1992, 1988, 1976):
+          ...:     results = getresults(str(year) + '.json')
+          ...:     flips = findflips(results)
+          ...:     loser = 'Democrats' if winnerloser(results)[1] == 'dem' else 'Republicans'
+          ...:     print("\n" + str(year))
+          ...:     printresults(flips, loser=loser)
           ...:
 
 2016
