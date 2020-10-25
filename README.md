@@ -101,19 +101,19 @@ Move 92222 Republicans to Tennessee for 11 EVs
 Total of 569667 people for 103 EVs
 
 1988
-Move 352685 Republicans to California for 47 EVs
-Move 106725 Republicans to Colorado for 8 EVs
-Move 73658 Republicans to Connecticut for 8 EVs
-Move 30993 Republicans to Delaware for 3 EVs
-Move 95000 Republicans to Illinois for 24 EVs
-Move 63563 Republicans to Maine for 4 EVs
-Move 49864 Republicans to Maryland for 10 EVs
-Move 83335 Republicans to Missouri for 11 EVs
-Move 21477 Republicans to Montana for 4 EVs
-Move 25845 Republicans to New Mexico for 5 EVs
-Move 38821 Republicans to North Dakota for 3 EVs
-Move 105144 Republicans to Pennsylvania for 25 EVs
-Move 19856 Republicans to South Dakota for 3 EVs
-Move 8557 Republicans to Vermont for 3 EVs
+Move 352685 Democrats to California for 47 EVs
+Move 106725 Democrats to Colorado for 8 EVs
+Move 73658 Democrats to Connecticut for 8 EVs
+Move 30993 Democrats to Delaware for 3 EVs
+Move 95000 Democrats to Illinois for 24 EVs
+Move 63563 Democrats to Maine for 4 EVs
+Move 49864 Democrats to Maryland for 10 EVs
+Move 83335 Democrats to Missouri for 11 EVs
+Move 21477 Democrats to Montana for 4 EVs
+Move 25845 Democrats to New Mexico for 5 EVs
+Move 38821 Democrats to North Dakota for 3 EVs
+Move 105144 Democrats to Pennsylvania for 25 EVs
+Move 19856 Democrats to South Dakota for 3 EVs
+Move 8557 Democrats to Vermont for 3 EVs
 Total of 1075523 people for 158 EVs
 ```
