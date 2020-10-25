@@ -1,0 +1,257 @@
+{
+  "Alabama ": {
+    "evs": 9,
+    "dem": 662165,
+    "gop": 769044
+  },
+  "Alaska ": {
+    "evs": 3,
+    "dem": 80380,
+    "gop": 122746
+  },
+  "Arizona ": {
+    "evs": 8,
+    "dem": 653288,
+    "gop": 622073
+  },
+  "Arkansas ": {
+    "evs": 6,
+    "dem": 475171,
+    "gop": 325416
+  },
+  "California ": {
+    "evs": 54,
+    "dem": 5119835,
+    "gop": 3828380
+  },
+  "Colorado ": {
+    "evs": 8,
+    "dem": 671152,
+    "gop": 691848
+  },
+  "Connecticut ": {
+    "evs": 8,
+    "dem": 735740,
+    "gop": 483109
+  },
+  "Delaware ": {
+    "evs": 3,
+    "dem": 140355,
+    "gop": 99062
+  },
+  "D.C. ": {
+    "evs": 3,
+    "dem": 158220,
+    "gop": 17339
+  },
+  "Florida ": {
+    "evs": 25,
+    "dem": 2546870,
+    "gop": 2244536
+  },
+  "Georgia ": {
+    "evs": 13,
+    "dem": 1053849,
+    "gop": 1080843
+  },
+  "Hawaii ": {
+    "evs": 4,
+    "dem": 205012,
+    "gop": 113943
+  },
+  "Idaho ": {
+    "evs": 4,
+    "dem": 165443,
+    "gop": 256595
+  },
+  "Illinois ": {
+    "evs": 22,
+    "dem": 2341744,
+    "gop": 1587021
+  },
+  "Indiana ": {
+    "evs": 12,
+    "dem": 887424,
+    "gop": 1006693
+  },
+  "Iowa ": {
+    "evs": 7,
+    "dem": 620258,
+    "gop": 492644
+  },
+  "Kansas ": {
+    "evs": 6,
+    "dem": 387659,
+    "gop": 583245
+  },
+  "Kentucky ": {
+    "evs": 8,
+    "dem": 636614,
+    "gop": 623283
+  },
+  "Louisiana ": {
+    "evs": 9,
+    "dem": 927837,
+    "gop": 712586
+  },
+  "Maine ": {
+    "evs": 4,
+    "dem": 312788,
+    "gop": 186378
+  },
+  "Maryland ": {
+    "evs": 10,
+    "dem": 966207,
+    "gop": 681530
+  },
+  "Massachusetts ": {
+    "evs": 12,
+    "dem": 1571763,
+    "gop": 718107
+  },
+  "Michigan ": {
+    "evs": 18,
+    "dem": 1989653,
+    "gop": 1481212
+  },
+  "Minnesota ": {
+    "evs": 10,
+    "dem": 1120438,
+    "gop": 766476
+  },
+  "Mississippi ": {
+    "evs": 7,
+    "dem": 394022,
+    "gop": 439838
+  },
+  "Missouri ": {
+    "evs": 11,
+    "dem": 1025935,
+    "gop": 890016
+  },
+  "Montana ": {
+    "evs": 3,
+    "dem": 167922,
+    "gop": 179652
+  },
+  "Nebraska ": {
+    "evs": 5,
+    "dem": 236761,
+    "gop": 363467
+  },
+  "Nevada ": {
+    "evs": 4,
+    "dem": 203974,
+    "gop": 199244
+  },
+  "New Hampshire ": {
+    "evs": 4,
+    "dem": 246214,
+    "gop": 196532
+  },
+  "New Jersey ": {
+    "evs": 15,
+    "dem": 1652329,
+    "gop": 1103078
+  },
+  "New Mexico ": {
+    "evs": 5,
+    "dem": 273495,
+    "gop": 232751
+  },
+  "New York ": {
+    "evs": 33,
+    "dem": 3756177,
+    "gop": 1933492
+  },
+  "North Carolina ": {
+    "evs": 14,
+    "dem": 1107849,
+    "gop": 1225938
+  },
+  "North Dakota ": {
+    "evs": 3,
+    "dem": 106905,
+    "gop": 125050
+  },
+  "Ohio ": {
+    "evs": 21,
+    "dem": 2148222,
+    "gop": 1859883
+  },
+  "Oklahoma ": {
+    "evs": 8,
+    "dem": 488105,
+    "gop": 582315
+  },
+  "Oregon ": {
+    "evs": 7,
+    "dem": 649641,
+    "gop": 538152
+  },
+  "Pennsylvania ": {
+    "evs": 23,
+    "dem": 2215819,
+    "gop": 1801169
+  },
+  "Rhode Island ": {
+    "evs": 4,
+    "dem": 233050,
+    "gop": 104683
+  },
+  "South Carolina ": {
+    "evs": 8,
+    "dem": 504051,
+    "gop": 573458
+  },
+  "South Dakota ": {
+    "evs": 3,
+    "dem": 139333,
+    "gop": 150543
+  },
+  "Tennessee ": {
+    "evs": 11,
+    "dem": 909146,
+    "gop": 863530
+  },
+  "Texas ": {
+    "evs": 32,
+    "dem": 2459683,
+    "gop": 2736167
+  },
+  "Utah ": {
+    "evs": 5,
+    "dem": 221633,
+    "gop": 361911
+  },
+  "Vermont ": {
+    "evs": 3,
+    "dem": 137894,
+    "gop": 80352
+  },
+  "Virginia ": {
+    "evs": 13,
+    "dem": 1091060,
+    "gop": 1138350
+  },
+  "Washington ": {
+    "evs": 11,
+    "dem": 1123323,
+    "gop": 840712
+  },
+  "West Virginia ": {
+    "evs": 5,
+    "dem": 327812,
+    "gop": 233946
+  },
+  "Wisconsin ": {
+    "evs": 11,
+    "dem": 1071971,
+    "gop": 845029
+  },
+  "Wyoming ": {
+    "evs": 3,
+    "dem": 77934,
+    "gop": 105388
+  }
+}
